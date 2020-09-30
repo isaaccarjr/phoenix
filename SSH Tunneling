@@ -20,6 +20,5 @@ The -L option is only establishing a local port forward for a FUTURE connection.
 
 
 
-We established an internal network to work from. Allowing two hosts to talk to one another. Troubleshot ssh service to allow it to work properly. Researched ssh_config file settings. Archived video references/resources that covered creating local tunnels. Worked on establishing local tunnels with the -L option (local port forwarding). Familizarization with github and account creation.
 
  
