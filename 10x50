@@ -1,0 +1,26 @@
+A 192.168.159.134 --> B 192.168.159.132
+           
+Enabled ssh service (systemctl)
+
+sshd config file
+-- PermitRootLogin yes 
+-- PermitEmptyPasswords yes
+
+Set a password for root 
+(sshd_config file had PermitEmptyPasswords set to no) 
+
+For funsies
+/etc/ssh/sshd-banner
+/etc/motd  
+
+ssh root@127.0.0.1 -L 4444:192.168.159.132:22 -Nf 
+ssh root@127.0.0.1 -p 4444  
+
+The -L option is only establishing a local port forward for a FUTURE connection. You can only interact with it by logging into it via another ssh session. In this case we logged into B(192.168.159.132) via ssh on port 4444 root@127.0.0.1 (local host).  
+
+
+
+We established an internal network to work from. Allowing two hosts to talk to one another. Troubleshot ssh service to allow it to work properly. Researched ssh_config
+file settings. Archived video references/resources that covered creating local tunnels. Worked on establishing local tunnels with the -L option (local port forwarding).
+
+ 
