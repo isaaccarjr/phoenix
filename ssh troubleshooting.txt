@@ -1,0 +1,27 @@
+A 192.168.159.134 -->  B 192.168.159.132
+           
+Enabled ssh service (systemctl)
+
+sshd config file
+-- PermitRootLogin 
+-- PermitEmptyPasswords
+
+Set a password for root 
+(sshd_config file had PermitEmptyPasswords set to yes) 
+
+For funsies
+/etc/ssh/sshd-banner
+/etc/motd  
+
+ssh root@127.0.0.1 -L 4444:192.168.159.132:22 -Nf 
+ssh root@127.0.0.1 -p 4444  
+
+The -L option is only establishing the future connection. You can only interact with it by logging into 4444
+on the via 127.0.0.1 (local host)  
+
+
+
+We established a working network to work from. Allowing two hosts to talk to each other. Researched ssh_config
+file. Got the videos for created local tunnels. Worked on local tunnels with the -L options. Local port forwarding.
+
+ 
