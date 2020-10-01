@@ -1,27 +1,31 @@
-A 192.168.159.134 --> B 192.168.159.132
-           
+           --Troubleshooting --
 Enabled ssh service (systemctl)
 
 sshd config file
--- PermitRootLogin yes 
--- PermitEmptyPasswords yes
+>> PermitRootLogin yes 
+>> PermitEmptyPasswords yes
 
 Set a password for root 
 (sshd_config file had PermitEmptyPasswords set to no) 
 
-For funsies
+
+           --For Funsies--
+
 /etc/ssh/sshd-banner
 /etc/motd  
 
-ssh root@localIP -L <port#>:targetIP:<target port> 
-ssh root@targetIP -R <Remote port>:localIP:localport 
 
+           --Local Port Fowarding--
+T1 192.168.159.134 --> T2 192.168.159.132
 
+ssh root@<LocalIP> -L <Port#>:<TargetIP>:<Target Port> 
+ssh root@<TargetIP> -R <Remote Port#>:<LocalIP>:<Localport> 
 
+From Box A: 
 
-
-ssh root@127.0.0.1 -L 4444:192.168.159.132:22 -Nf 
-ssh root@127.0.0.1 -p 4444  
+ssh root@127.0.0.1 -L 4444:192.168.159.132:22  
+>ssh root@127.0.0.1 -p 4444  
+ > Access to T2 
 
 The -L option is only establishing a local port forward for a FUTURE connection. You can only interact with it by logging into it via another ssh session. In this case we logged into B(192.168.159.132) via ssh on port 4444 root@127.0.0.1 (local host).  
 
