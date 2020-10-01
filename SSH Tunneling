@@ -30,10 +30,10 @@ Note: The -L option is only used for establishing a local port forward for a FUT
            ssh root@127.0.0.1
 For the 1st ssh line syntax, by default it establishes a local port assignment you can add a local loopback address at this point 
 
-           -L 444
 
+           --Remote Port Forwarding--
 A <-- B 
-ssh root@targetIP -R <Remote port>:localIP:localport 
+ssh root@<TargetIP> -R <Remote Port>:<LocalIP:Localport>
 
 ssh -R 8181:localhost:3389 user@IP
 
