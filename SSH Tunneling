@@ -13,7 +13,14 @@ For funsies
 /etc/ssh/sshd-banner
 /etc/motd  
 
-ssh root@127.0.0.1 -L 127.0.0.1:4444:192.168.159.132:22 -Nf 
+ssh root@localIP -L <port#>:targetIP:<target port> 
+ssh root@targetIP -R <Remote port>:localIP:localport 
+
+
+
+
+
+ssh root@127.0.0.1 -L 4444:192.168.159.132:22 -Nf 
 ssh root@127.0.0.1 -p 4444  
 
 The -L option is only establishing a local port forward for a FUTURE connection. You can only interact with it by logging into it via another ssh session. In this case we logged into B(192.168.159.132) via ssh on port 4444 root@127.0.0.1 (local host).  
@@ -24,6 +31,7 @@ For the 1st ssh line syntax, by default it establishes a local port assignment y
            -L 444
 
 A <-- B 
+ssh root@targetIP -R <Remote port>:localIP:localport 
 
 ssh -R 8181:localhost:3389 user@IP
 
@@ -32,3 +40,5 @@ B ssh -p 8282 root@192.168.159132
 
 A ssh root@192.168.159.135 -R 9999:192.168.159.134:22
 B ssh root@localhost -p 9999
+
+
