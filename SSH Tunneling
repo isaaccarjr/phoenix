@@ -15,7 +15,7 @@ Set a password for root
 
 
            --Local Port Fowarding--
-A --> B
+T1 --> T2
 ssh root@<LocalIP> -L <Port#>:<TargetIP>:<Target Port> 
 ssh root@<TargetIP> -R <Remote Port#>:<LocalIP>:<Localport> 
 
@@ -33,7 +33,7 @@ For the 1st ssh line syntax, by default it establishes a local port assignment y
 
 
            --Remote Port Forwarding--
-A <-- B 
+T1 <-- T2 
 ssh root@<TargetIP> -R <Remote Port>:<LocalIP:Localport>
 
 ssh -R 8181:localhost:3389 user@IP
