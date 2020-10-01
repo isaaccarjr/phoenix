@@ -10,16 +10,15 @@ Set a password for root
 
 
            --For Funsies--
-
 /etc/ssh/sshd-banner
 /etc/motd  
 
 
            --Local Port Fowarding--
-T1 192.168.159.134 --> T2 192.168.159.132
-
 ssh root@<LocalIP> -L <Port#>:<TargetIP>:<Target Port> 
 ssh root@<TargetIP> -R <Remote Port#>:<LocalIP>:<Localport> 
+
+T1 192.168.159.134 --> T2 192.168.159.132
 
 From T1: 
 ssh root@127.0.0.1 -L 4444:192.168.159.132:22  
