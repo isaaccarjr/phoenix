@@ -15,6 +15,7 @@ Set a password for root
 
 
            --Local Port Fowarding--
+A --> B
 ssh root@<LocalIP> -L <Port#>:<TargetIP>:<Target Port> 
 ssh root@<TargetIP> -R <Remote Port#>:<LocalIP>:<Localport> 
 
