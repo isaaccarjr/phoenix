@@ -52,6 +52,12 @@ ssh root@192.168.159.132 -R 0.0.0.0:9999:localhost:22
    >>ssh root@127.0.0.1 -p 9999
      >>Access to T2 from T1 sending connection from T2 back to T1 like a listenern and closed connection
 
+-R Explained:
+The -R flag is similar to a local port forward but the directions are reversed. 
+When using the flag -R in regards to T1 <- T2 this means that the operator from the current machine is going to establish an
+ssh connection to a remote machine and create the beinging of the SSH pipe (the entrance) at the remote machine T2. The ssh pipe 
+then would port forward the traffic on the defined remote port back to your local machine and end the ssh pipe at 
+T1 (operator's local machine). 
 
 Note: The -R option is used for establishing a port on a remote machine that will connect back to your host machine. From the remote machine you can also 2
 interact with the connection. In this case we ssh'd to the remote machine, opened port 9999 that connected back to our host. Then from the remote machine (T1) 
