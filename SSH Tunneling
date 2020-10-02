@@ -72,12 +72,12 @@ ssh -R 8181:localhost:3389 user@IP
 
 
            T1             T2   
-ssh root@workIP -L 4444:homeIP:3389  
+ssh root@workIP -L 127.0.0.1:4444:homeIP:3389  
 So in this example T1 would be the work computer. The firewall allows inbound and outbound ssh connections. The firewall does not allow 3389 (RDP) connections. 
 Using the -L options you would assign a port (4444) to forward traffic to your "homeIP" on (3389) RDP. 
 
              T2                T1
-ssh root@webserverIP -R 8080:homeIP:22 
+ssh root@webserverIP -R 0.0.0.0:8080:homeIP:22 
 So in this example T2 would be the webserver. The firewall allows inbound and outbound ssh connections. The firewall does not allow web traffic over 8080. 
 Using the -R options we would assign a port (8080) on T2 to forward traffic back to our "homeIP" on port 80 through a secure connection.    
 
