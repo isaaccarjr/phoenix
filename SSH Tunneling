@@ -42,7 +42,7 @@ The 3rd Part of the syntax covers target ip and destination port
 T1 <-- T2
 T1 192.168.159.134 <--T2 192.168.159.132
 
-ssh root@<TargetIP> -R <Remote Port#>:<LocalIP>:<Localport>
+ssh root@<TargetIP> -R <RemoteIP><Remote Port#>:<LocalIP>:<Localport>
 
 From T1
 ssh root@192.168.159.132 -R 9999:localhost:22
