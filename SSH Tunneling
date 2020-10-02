@@ -4,7 +4,7 @@ What: Using Local/Remote port forwarding to establish an encrypted tunnel
 When: Creating an encrypted tunnel to allow certain connections to maneuver through those tunnels 
 Where: Via Unix/Linux CMD line as well as Windows 10 CMD line 
 Why: The main benefit to Local/Remote port fowarding is directing certain traffic travel through encrypted tunnels you have established. 
-     With the ablitly to extend those tunnels to reach hosts further into the network.
+With the ablitly to extend those tunnels to reach hosts further into the network.
            
            --Local Port Fowarding--
 T1 --> T2
