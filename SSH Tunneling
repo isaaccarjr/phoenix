@@ -7,13 +7,13 @@ Why: The main benefit to Local/Remote port fowarding is directing certain traffi
            
            --Local Port Fowarding--
 T1 --> T2
-ssh root@<LocalIP> -L <Port#>:<TargetIP>:<Target Port> 
+ssh root@<LocalIP> -L <LocalIP><Port#>:<TargetIP>:<Target Port> 
  
 
 T1 192.168.159.134 --> T2 192.168.159.132
 
 From T1: 
-ssh root@127.0.0.1 -L 4444:192.168.159.132:22  (the Kickoff)
+ssh root@127.0.0.1 -L 127.0.0.1:4444:192.168.159.132:22  (the Kickoff)
  >ssh root@127.0.0.1 -p 4444  
   >>Access to T2 
 
@@ -22,10 +22,10 @@ Note: The -L option is only used for establishing a local port forward for a FUT
 
 Breakdown:
 For the 1st part of ssh line syntax, by default it establishes a local port assignment you can add a local loopback address at this point 
-           " ssh root@127.0.0.1"
+           " ssh root@127.0.0.1 "
            
 The 2nd part of the syntax determines what port you are assigning locally (by default it will assign 127.0.0.1 to the -L 4444)
-           " -L 4444: "
+           " -L 127.0.0.1:4444: "
 
 The 3rd Part of the syntax covers target ip and destination port
            " 192.168.159.132:22 "
