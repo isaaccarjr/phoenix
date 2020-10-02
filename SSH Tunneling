@@ -45,7 +45,7 @@ T1 192.168.159.134 <--T2 192.168.159.132
 ssh root@<TargetIP> -R <RemoteIP><Remote Port#>:<LocalIP>:<Localport>
 
 From T1
-ssh root@192.168.159.132 -R 9999:localhost:22
+ssh root@192.168.159.132 -R 0.0.0.0:9999:localhost:22
 > From T2 
    >>ssh root@127.0.0.1 -p 9999
      >>Access to T2 from T1 sending connection from T2 back to T1 like a listenern and closed connection
@@ -57,13 +57,13 @@ we interacted with the connection via root@127.0.0.1 on port 9999.
 
 Breakdown:
 For the 1st part of the ssh line syntax, we ssh to the remote machine 
-           " ssh root@192.168.159.132"
+           " ssh root@192.168.159.132 "
            
 For the 2nd part of the ssh line syntax, we establish a designated remote port 9999
-           "-R 9999"
+           " -R 0.0.0.0:9999 "
            
 For the 3rd part of the ssh line syntax we designate the callback connection to our host machine
-           "localhost:22"
+           " localhost:22 "
            
            
            --Examples--
