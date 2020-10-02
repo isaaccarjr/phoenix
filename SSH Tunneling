@@ -9,7 +9,8 @@ With the ablitly to extend those tunnels to reach hosts further into the network
            --Local Port Fowarding--
 T1 --> T2
 ssh root@<LocalIP> -L <LocalIP><Port#>:<TargetIP>:<Target Port> 
- 
+    
+    ***SEE Local_Forwarding_illistration.jgp FOR VISUAL AID ***
 
 T1 192.168.159.134 --> T2 192.168.159.132
 
