@@ -64,9 +64,10 @@ So in this example T1 would be the work computer. The firewall allows inbound an
 ssh root@webserverIP -R 8080:homeIP:22 
 So in this example T2 would be the webserver. The firewall allows inbound and outbound ssh connections. The firewall does not allow web traffic over 8080. Using the -R options we would assign a port (8080) on T2 to forward traffic back to our "homeIP" on port 80 through a secure connection.    
 
-references:
-1.https://www.youtube.com/watch?v=AtuAdk4MwWw&t=302s - A video explaination of ssh tunnels
-2.https://www.youtube.com/watch?v=g_Row8zEJZc&t=3s - More a visual explaination of ssh tunnels
-3.The Secure Shell by Daniel J. Barrett, Richard E. Silverman, and Robert G. Byrnes   
+References:
+1.man ssh - man page command for ssh on linux
+2.https://www.youtube.com/watch?v=AtuAdk4MwWw&t=302s - A video explaination of ssh tunnels
+3.https://www.youtube.com/watch?v=g_Row8zEJZc&t=3s - More a visual explaination of ssh tunnels
+4.The Secure Shell by Daniel J. Barrett, Richard E. Silverman, and Robert G. Byrnes   
            -Page 350-355 section 9.2.1 Local Forwarding
            -Page 356 section 9.2.1.2 Remote Forwarding
