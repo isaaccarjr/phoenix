@@ -31,7 +31,7 @@ Breakdown:
 For the 1st part of ssh line syntax, by default it establishes a local port assignment you can add a local loopback address at this point 
            " ssh root@127.0.0.1 "
            
-The 2nd part of the syntax determines what port you are assigning locally (If left blank, by default it will assign 127.0.0.1 to the -L 4444)
+The 2nd part of the syntax determines what port you are assigning locally [If left blank, by default it will assign 127.0.0.1 (localhost) to the -L 4444 port]
            " -L 127.0.0.1:4444: "
 
 The 3rd Part of the syntax covers target ip and destination port
@@ -59,7 +59,8 @@ Breakdown:
 For the 1st part of the ssh line syntax, we ssh to the remote machine 
            " ssh root@192.168.159.132 "
            
-For the 2nd part of the ssh line syntax, we establish a designated remote port 9999
+For the 2nd part of the ssh line syntax, we establish a designated remote port 9999 [If left blank, by default it will assign 0.0.0.0 (all IPv4 address assigned to the machine) 
+to the -R 9999 port]
            " -R 0.0.0.0:9999 "
            
 For the 3rd part of the ssh line syntax we designate the callback connection to our host machine
