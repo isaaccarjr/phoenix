@@ -1,18 +1,3 @@
-           --Troubleshooting --
-Enabled ssh service (systemctl)
-
-sshd config file
->> PermitRootLogin yes 
->> PermitEmptyPasswords yes
-
-Set a password for root 
-(sshd_config file had PermitEmptyPasswords set to no) 
-
-
-           --For Funsies--
-/etc/ssh/sshd-banner
-/etc/motd  
-
 
            --Local Port Fowarding--
 T1 --> T2
