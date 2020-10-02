@@ -1,4 +1,5 @@
-           --Troubleshooting --
+        
+        --Troubleshooting --
 Enabled ssh service (systemctl)
 
 sshd config file
