@@ -25,9 +25,10 @@ at T1 (local machine IP). The pipe will start at T1 and create an ssh connection
 SSH pipe will end at T2 and port forward the traffic starting at T1 and sending it to T2 (remote machine IP) to a port you defined. 
            
 Note: The -L option is only used for establishing a local port forward for a FUTURE connection. You can only interact with it by logging 
-into it via another ssh session. In this case we logged into T2(192.168.159.132) via ssh on port 4444 root@127.0.0.1 (local host).  
-
-
+into it via another ssh session. In this case we logged into T2(192.168.159.132) via ssh on port 4444 root@127.0.0.1 (local host).             
+           
+           ***SEE Local_Forwarding_illistration.jgp FOR VISUAL AID ***
+           
 Breakdown:
 For the 1st part of ssh line syntax, by default it establishes a local port assignment you can add a local loopback address at this point 
            " ssh root@127.0.0.1 "
