@@ -68,7 +68,7 @@ For the 3rd part of the ssh line syntax we designate the callback connection to 
            
            --Examples--
 RDP over ssh connection throuh designated port
-ssh -R 8181:localhost:3389 user@IP
+ssh -R 0.0.0.0:8181:localhost:3389 user@IP
 
 
            T1             T2   
