@@ -37,7 +37,8 @@ For the 1st part of ssh line syntax, by default it establishes a local port assi
 The 2nd part of the syntax determines what port you are assigning locally [If not specified, by default it will assign 127.0.0.1 (localhost) to the -L 4444 port]
            " -L 127.0.0.1:4444: "
 
-The 3rd Part of the syntax covers target ip and destination port
+The 3rd Part of the syntax covers target ip and destination port. This portion of the syntax tells the machine where to forward the traffic from the locally bound port. 
+In this case we want any traffic that is recieved on the locally bound port of 4444, to be sent to the remote IP of 192.168.159.132 on port 22.
            " 192.168.159.132:22 "
            
            
