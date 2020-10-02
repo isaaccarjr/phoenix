@@ -59,7 +59,7 @@ Breakdown:
 For the 1st part of the ssh line syntax, we ssh to the remote machine 
            " ssh root@192.168.159.132 "
            
-For the 2nd part of the ssh line syntax, we establish a designated remote port 9999 [If left blank, by default it will assign 0.0.0.0 (all IPv4 address assigned to the machine) 
+For the 2nd part of the ssh line syntax, we establish a designated remote port 9999 [If left blank, by default it will assign 0.0.0.0(all IPv4 address assigned to the machine) 
 to the -R 9999 port]
            " -R 0.0.0.0:9999 "
            
