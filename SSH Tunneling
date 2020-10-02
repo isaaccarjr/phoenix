@@ -41,6 +41,31 @@ The 3rd Part of the syntax covers target ip and destination port. This portion o
 In this case we want any traffic that is recieved on the locally bound port of 4444, to be forwarded to the remote IP of 192.168.159.132 on port 22.
            " 192.168.159.132:22 "
            
+           -- -L Use cases --
+127.0.0.1:80 
+google.com:443 
+All traffic sent to port 80 HTTP on the localhost is now being sent on port 443 HTTPS on a secure connection.
+HTTP data on port 80 is sent using cleartext. Since you are now fowarding port 80 traffic to 443 HTTPS, the
+web data is now secured with an encrypted connection. 
+
+127.0.0.1:21
+FileserverIP:22
+All traffic sent to port 21 FTP on the localhost is now being sent on port 22 SFTP on a secure connection.
+FTP does data transfer using cleartext but because you established a secure tunnel, that data is now being sent 
+over an encrypted connection.
+
+127.0.0.1:23
+LinuxServerIP:22
+All traffic sent to port 23 Telnet on the localhost is now being sent on port 22 SSH on a secure connection.
+System administrators may need to access devices remotely, but Telnet sends data over the wire using plaintext. 
+Now, with this secure connection, any duties they perform over the wire is now encrypted over the secure 
+tunnel.  
+
+127.0.0.1:3389
+homeIP:22
+If your work firewall is set to block 3389 RDP connections, you can set a secure tunnel to foward any connection on the local port 3389 
+to run through a secure tunnel to your home computer. Now, not only are you allowed to use the RDP protocol, all the data sent over the 
+wire will now be encypted as well.
            
            --Remote Port Forwarding--
 T1 <-- T2
