@@ -46,6 +46,8 @@ In this case we want any traffic that is recieved on the locally bound port of 4
 T1 <-- T2
 T1 192.168.159.134 <--T2 192.168.159.132
 
+           ***SEE Local_Forwarding_illistration.jgp FOR VISUAL AID ***
+
 ssh root@<TargetIP> -R <RemoteIP><Remote Port#>:<LocalIP>:<Localport>
 
 From T1
