@@ -89,11 +89,12 @@ Note: The arrow above indicates the direction in which the bind\_port is being f
 From our T2 bind_address:
  
 ![](https://github.com/isaaccarjr/phoenix/blob/master/B%20to%20A.PNG?raw=true)
-Command is  "ssh root@127.0.0.1 -L 127.0.0.1:4444:192.168.159.134:22"
+
+Command is "ssh root@127.0.0.1 -L 127.0.0.1:4444:192.168.159.134:22"
 
 ![](https://github.com/isaaccarjr/phoenix/blob/master/A%20to%20B%202.PNG?raw=true)
-\>ssh root@127.0.0.1 -p 4444
-\>>Access to T2
+>ssh root@127.0.0.1 -p 4444
+>>Access to T2
 
 ##           Remote Port Forwarding
 -R Explained:
