@@ -79,7 +79,7 @@ If your work firewall is set to block 3389 RDP connections, you can set a secure
 
 ##           Remote Port Forwarding
 -R Explained:
-The -R flag is similar to a local port forward but the directions are reversed. When using the flag -R in regards to T1 <- T2 this means that the user from the current client machine machine is going to establish an ssh connection to a Server IP and create the beinnging of the SSH pipe (the entrance) at the Server machine T2. This establishes an Server Listener on the Server machine. Any application server that is being forwarded will then return and make a connection to the ssh client and application client at your own local machine.
+The -R flag is similar to a local port forward but the directions are reversed. When using the flag -R in regards to T1 --< T2 this means that the user from the current client machine machine is going to establish an ssh connection to a Server IP and create the beinnging of the SSH pipe (the entrance) at the Server machine T2. This establishes an Server Listener on the Server machine. Any application server that is being forwarded will then return and make a connection to the ssh client and application client at your own local machine.
 
 T1 --< T2
 Note: The Arrow above as well as in the illustration below indicates the direction in which the port is being forwarded. If you are working from your current local host client (T1) then the port will be forwarded from the Server(T2) back to T1
