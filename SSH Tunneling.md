@@ -134,6 +134,18 @@ For the 2nd part of the ssh line syntax, we establish a designated remote port 9
            
 For the 3rd part of the ssh line syntax we designate the callback connection to our Bind_Address_IP machine 
            " localhost:22 "
+
+Now with understanding -R T1 --< T2 there is also the opposite direction as well. With the same concept as setting up a Server listener from a client, we can go also go the opposite direction. T2 >-- T1. With The next Example we will port forward traffic from the Server Listener at 192.168.159.134 back to the client at 192.168.159.132
+
+![](https://github.com/isaaccarjr/phoenix/blob/master/11.PNG?raw=true)
+command is ssh root@192.168.159.134 -R 0.0.0.0:9999:127.0.0.1:22
+
+Now on the Server Listener we can verify this connection with netstat to show we created a listening Server Socket 
+![](https://github.com/isaaccarjr/phoenix/blob/master/13.PNG?raw=true)
+To interact with this connection we can do the same as before by logging into the connection locally from 192.168.159.134
+![](https://github.com/isaaccarjr/phoenix/blob/master/14.PNG?raw=true)
+
+With that concludes 2 separate ways to use the -R flag with similar syntax.
            
            
 ##          --Example--
