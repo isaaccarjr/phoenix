@@ -1,8 +1,6 @@
 ## BLUF
 
  
-
- 
  
 ## Five W's
 - Who: Members looking to start the Title 10/Title 50 pipeline
@@ -12,18 +10,14 @@
 - Why: The main benefit to Local/Remote port fowarding is directing certain traffic travel through encrypted tunnels you have established. 
 With the ablitly to extend those tunnels to reach hosts further into the network.
 
- 
-
 ## Local Port Fowarding
 #####                                       T1 --> T2
 Note: The arrow above (and below in the illustration) indicates the direction in which the port is being forwarded. If you are working from your current bind\_address(T1) then the port will be forwarded to a remotehost\_IP and hostport(T2).
 
- 
-
 
  
 ```sh
-                    $ ssh root@[localhost] -L [bind_address:]port:host:hostport
+                    $ ssh root@[localhost] -L [bind_address:]bind_port:host:hostport
                             T1 192.168.159.134 --> T2 192.168.159.132
 ```
 From our T1 bind_address:
@@ -32,14 +26,10 @@ Command is  "ssh root@127.0.0.1 -L 127.0.0.1:4444:192.168.159.132:22"
 \>ssh root@127.0.0.1 -p 4444
 ![](https://github.com/isaaccarjr/phoenix/blob/master/A%20to%20B%202.PNG?raw=true)
    \>>Access to T2 
-   
+
 ![](https://github.com/isaaccarjr/phoenix/blob/master/Local_Forward_illistration.jpg?raw=true)
 
- 
 
- 
-
- 
 
 -L Explained:  
 The -L flags specifies a local forwarding. This states that the TCP client and SSH client are both on the same bind_address machine.
@@ -47,7 +37,9 @@ When using the flag -L in regards to T1 -> T2 this means that the user is creati
 at T1 (bind_address IP). The pipe will start at T1 and create an ssh connection with a host_address machine and a defined port. The SSH pipe will end at T2 and port forward the traffic starting at T1 and sending it to T2 (remote machine IP) to a port you defined. 
            
 Note: The -L option is only used for establishing a local port forward for a FUTURE connection. You can only interact with it by logging 
-into it via another ssh session. In this case we logged into T2(192.168.159.132) via ssh on port 4444 root@127.0.0.1 (local host).            
+into it via another ssh session. In this case we logged into T2(192.168.159.132) via ssh on port 4444 root@127.0.0.1 (local host).             
+           
+           ***SEE Local_Forwarding_illistration.jgp FOR VISUAL AID ***
            
 Breakdown:
 For the 1st part of ssh line syntax, by default it establishes a local port assignment you can add a local loopback address at this point 
@@ -58,47 +50,29 @@ The 2nd part of the syntax determines what port you are assigning locally [If no
 
  
 
- 
-
- 
-
 The 3rd Part of the syntax covers target ip and destination port. This portion of the syntax tells the machine where to forward the traffic from the locally bound port. 
 In this case we want any traffic that is recieved on the locally bound port of 4444, to be forwarded to the remote IP of 192.168.159.132 on port 22.
            " 192.168.159.132:22 "
            
-           -- -L Use cases --
+##    -L Use cases 
 127.0.0.1:80 
 google.com:443 
-All traffic being sent to bind\_port 80 (HTTP) on the bind\_address is now being sent to the remote hostport 443 (HTTPS) on a secure connection. HTTP data on port 80 is sent using cleartext. Since you are now fowarding the bind\_address port 80 traffic to the remote\_hostport on 443 (HTTPS), the web data is now secured over an encrypted connection. 
-
- 
+All traffic being sent to the bind\_port 80 (HTTP) on the bind\_address is now being sent to the remote hostport 443 (HTTPS) on a secure connection. HTTP data on port 80 is sent using cleartext. Since you are now fowarding traffic to the bind\_address port 80 to the remote\_hostport on 443 (HTTPS), the web data is now secured over an encrypted connection. 
 
  
 127.0.0.1:21
 FileserverIP:22
-All traffic being sent to the bind\_port 21 (FTP) on the bind\_address is now being sent to the remote hostport 22 (SFTP) on a secure connection. FTP does data transfer using cleartext but because you established a secure tunnel, that data is now being sent over an encrypted connection.
+All traffic being sent to the bind\_port 21 (FTP) on the bind\_address is now being sent to the remote hostport 22 (SFTP) on a secure connection. FTP completes data transfer using cleartext but because you established a secure tunnel, that data is now being sent over an encrypted connection.
 
  
-
- 
-
- 
-
 127.0.0.1:23
 LinuxServerIP:22
-All traffic being sent to the bind\_port 23 (Telnet) on the bind\_address is now being sent on the remote hostport 22 (SSH) on a secure connection.System administrators may need to access devices remotely, but Telnet sends data over the wire using plaintext. Now, with this secure connection, any duties they perform over the wire would now be encrypted over the secure tunnel.  
+All traffic being sent to the bind\_port 23 (Telnet) on the bind\_address is now being sent on the remote hostport 22 (SSH) on a secure connection.System administrators may need to access devices remotely, but Telnet sends data over the wire using plaintext. Now, with this secure connection, any duties they perform over the wire would now be encrypted.  
 
  
-
- 
-
- 
-
 127.0.0.1:3389
 homeIP:22
-If your work firewall is set to block 3389 RDP connections, you can set a secure tunnel to foward any connection on the local port 3389 
-to run through a secure tunnel to your home computer. Now, not only are you allowed to use the RDP protocol, all the data sent over the 
-wire will now be encypted as well.
+If your work firewall is set to block 3389 RDP connections, you can set a secure tunnel to foward any connections on the bind\_port 3389 to run through a secure tunnel to your home computer on the remote hostport 22. Now, not only are you allowed to use the RDP protocol, all the data sent over the wire will now be encypted as well.
 
 ##           --Remote Port Forwarding--
 -R Explained:
