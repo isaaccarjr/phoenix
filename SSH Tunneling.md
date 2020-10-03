@@ -78,15 +78,17 @@ All traffic being sent to the bind\_port 23 (Telnet) on the bind\_address is now
 homeIP:22
 If your work firewall is set to block 3389 RDP connections, you can set a secure tunnel to foward any connections on the bind\_port 3389 to run through a secure tunnel to your home computer on the remote hostport 22. Now, not only are you allowed to use the RDP protocol, all the data sent over the wire will now be encypted as well.
 
-##           --Remote Port Forwarding--
+##           Remote Port Forwarding
 -R Explained:
 The -R flag is similar to a local port forward but the directions are reversed. When using the flag -R in regards to T1 <- T2 this means that the user from the current client machine machine is going to establish an ssh connection to a Server IP and create the beinnging of the SSH pipe (the entrance) at the Server machine T2. This establishes an Server Listener on the Server machine. Any application server that is being forwarded will then return and make a connection to the ssh client and application client at your own local machine.
 
 T1 <-- T2
-note: The Arrow above as well as in the illustration below indicates the direction in which the port is being forwarded. If you are working from your current local host client (T1) then the port will be forwarded from the Server(T2) back to T1
+Note: The Arrow above as well as in the illustration below indicates the direction in which the port is being forwarded. If you are working from your current local host client (T1) then the port will be forwarded from the Server(T2) back to T1
 T1 192.168.159.134 <--T2 192.168.159.132
+
 ![](https://github.com/isaaccarjr/phoenix/blob/master/Remote_Forwarding_illistration.jpg?raw=true)
-## syntax
+
+## Syntax
 ssh user@<Remote_Host_IP> -R <Remote_Host_IP><Remote_Host_Port#>:<Bind_Address_IP>:<Bind_Address_Port>
 
 From T1
