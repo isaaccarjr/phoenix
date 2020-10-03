@@ -84,6 +84,7 @@ The -R flag is similar to a local port forward but the directions are reversed. 
 
 T1 <-- T2
 Note: The Arrow above as well as in the illustration below indicates the direction in which the port is being forwarded. If you are working from your current local host client (T1) then the port will be forwarded from the Server(T2) back to T1
+
 T1 192.168.159.134 <--T2 192.168.159.132
 
 ![](https://github.com/isaaccarjr/phoenix/blob/master/Remote_Forwarding_illistration.jpg?raw=true)
