@@ -11,6 +11,9 @@ With the ablitly to extend those tunnels to reach hosts further into the network
            
            --Local Port Fowarding--
 T1 --> T2
+note: The Arrow above indicates the direction in which the port is being forwarded. If you are working from your current local host (T1) then the port will be 
+forwarded to a remote machine(T2) 
+
 ssh root@<LocalIP> -L <LocalIP><Port#>:<TargetIP>:<Target Port> 
     
     ***SEE Local_Forwarding_illistration.jgp FOR VISUAL AID ***
