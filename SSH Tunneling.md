@@ -43,7 +43,7 @@ at T1 (bind_address IP). The pipe will start at T1 and create an ssh connection 
 Note: The -L option is only used for establishing a local port forward for a FUTURE connection. You can only interact with it by logging 
 into it via another ssh session. In this case we logged into T2(192.168.159.132) via ssh on port 4444 root@127.0.0.1 (local host).             
            
-           ***SEE Local_Forwarding_illistration.jgp FOR VISUAL AID ***
+           
            
 Breakdown:
 For the 1st part of ssh line syntax, by default it establishes a local port assignment you can add a local loopback address at this point 
