@@ -3,16 +3,15 @@
  
  
 ## Five W's
-- Who: Members looking to start the Title 10/Title 50 pipeline
-- What: Using Local/Remote port forwarding to establish an encrypted tunnel  
+- Who: System administrators, developers, people who work remotely  
+- What: Using Local/Remote port forwarding to establish an encrypted tunnel, accessing resources over a secure connection, how to use the ssh tunneling mechanism 
 - When: Creating an encrypted tunnel to allow certain connections to maneuver through those tunnels 
-- Where: Via Unix/Linux CMD line as well as Windows 10 CMD line 
-- Why: The main benefit to Local/Remote port fowarding is directing certain traffic travel through encrypted tunnels you have established. 
-With the ablitly to extend those tunnels to reach hosts further into the network.
+- Where: Ignoring NAT, Firewall, and routing concepts for implementations. Accessing different servers with needed recources     
+- Why: Building a strong foundation of core concepts and expose different utilities of ssh mechanics 
 
 ## Local Port Fowarding
 #####                                       T1 --> T2
-Note: The arrow above (and below in the illustration) indicates the direction in which the port is being forwarded. If you are working from your current bind\_address(T1) then the port will be forwarded to a remotehost\_IP and hostport(T2).
+Note: The arrow above (and below in the illustration) indicates the direction in which the port is being forwarded. If you are working from your current bind\_address(T1) then the bind_port will forward the connection to the Server\_IP and hostport(T2).
 
 
  
@@ -36,9 +35,9 @@ Command is  "ssh root@127.0.0.1 -L 127.0.0.1:4444:192.168.159.132:22"
 
 
 -L Explained:  
-The -L flags specifies a local forwarding. This states that the TCP client and SSH client are both on the same bind_address machine.
+The -L flags specifies a local forwarding. This states that the TCP client and SSH client are both on the same Client machine.
 When using the flag -L in regards to T1 -> T2 this means that the user is creating the start of the SSH pipe (The entrance) 
-at T1 (bind_address IP). The pipe will start at T1 and create an ssh connection with a host_address machine and a defined port. The SSH pipe will end at T2 and port forward the traffic starting at T1 and sending it to T2 (remote machine IP) to a port you defined. 
+at T1 (bind_address IP). The pipe will start at T1 and create an ssh connection with a Server machine and a defined port. The SSH pipe will end at T2 and port forward the traffic starting at T1 and sending it to T2 (Server machine IP) to a hostport you defined. 
            
 Note: The -L option is only used for establishing a local port forward for a FUTURE connection. You can only interact with it by logging 
 into it via another ssh session. In this case we logged into T2(192.168.159.132) via ssh on port 4444 root@127.0.0.1 (local host).             
