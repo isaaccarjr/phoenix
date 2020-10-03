@@ -1,0 +1,100 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><title>Untitled Document.md</title><style></style></head><body id="preview">
+<h2 class="code-line" data-line-start=0 data-line-end=1><a id="BLUF_0"></a>BLUF</h2>
+<h2 class="code-line" data-line-start=6 data-line-end=7><a id="Five_Ws_6"></a>Five W’s</h2>
+<ul>
+<li class="has-line-data" data-line-start="7" data-line-end="8">Who: Members looking to start the Title 10/Title 50 pipeline</li>
+<li class="has-line-data" data-line-start="8" data-line-end="9">What: Using Local/Remote port forwarding to establish an encrypted tunnel</li>
+<li class="has-line-data" data-line-start="9" data-line-end="10">When: Creating an encrypted tunnel to allow certain connections to maneuver through those tunnels</li>
+<li class="has-line-data" data-line-start="10" data-line-end="11">Where: Via Unix/Linux CMD line as well as Windows 10 CMD line</li>
+<li class="has-line-data" data-line-start="11" data-line-end="13">Why: The main benefit to Local/Remote port fowarding is directing certain traffic travel through encrypted tunnels you have established.<br>
+With the ablitly to extend those tunnels to reach hosts further into the network.</li>
+</ul>
+<h2 class="code-line" data-line-start=16 data-line-end=17><a id="Local_Port_Fowarding_16"></a>Local Port Fowarding</h2>
+<h5 class="code-line" data-line-start=17 data-line-end=18><a id="T1__T2_17"></a>T1 --&gt; T2</h5>
+<p class="has-line-data" data-line-start="18" data-line-end="19">Note: The arrow above (and below in the illustration) indicates the direction in which the port is being forwarded. If you are working from your current bind_address(T1) then the port will be forwarded to a remotehost_IP and hostport(T2).</p>
+<pre><code class="has-line-data" data-line-start="25" data-line-end="28" class="language-sh">                    $ ssh <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="1f6d70706b5f">[email&#160;protected]</a>[localhost] -L [<span class="hljs-built_in">bind</span>_address:]port:host:hostport
+                            T1 <span class="hljs-number">192.168</span>.<span class="hljs-number">159.134</span> --&gt; T2 <span class="hljs-number">192.168</span>.<span class="hljs-number">159.132</span>
+</code></pre>
+<p class="has-line-data" data-line-start="28" data-line-end="34">From our T1 bind_address:<br>
+Command is “ssh <a href="/cdn-cgi/l/email-protection#097b66667d49383b3e273927392738"><span class="__cf_email__" data-cfemail="6b1904041f2b5a595c455b455b455a">[email&#160;protected]</span></a> -L 127.0.0.1:4444:192.168.159.132:22”<br>
+<img src="https://github.com/isaaccarjr/phoenix/blob/master/A%20to%20B.PNG?raw=true" alt=""><br>
+&gt;ssh <a href="/cdn-cgi/l/email-protection#52203d3d26126360657c627c627c63"><span class="__cf_email__" data-cfemail="deacb1b1aa9eefece9f0eef0eef0ef">[email&#160;protected]</span></a> -p 4444<br>
+<img src="https://github.com/isaaccarjr/phoenix/blob/master/A%20to%20B%202.PNG?raw=true" alt=""><br>
+&gt;&gt;Access to T2</p>
+<p class="has-line-data" data-line-start="41" data-line-end="45">-L Explained:<br>
+The -L flags specifies a local forwarding. This states that the TCP client and SSH client are both on the same bind_address machine.<br>
+When using the flag -L in regards to T1 -&gt; T2 this means that the user is creating the start of the SSH pipe (The entrance)<br>
+at T1 (bind_address IP). The pipe will start at T1 and create an ssh connection with a host_address machine and a defined port. The SSH pipe will end at T2 and port forward the traffic starting at T1 and sending it to T2 (remote machine IP) to a port you defined.</p>
+<p class="has-line-data" data-line-start="46" data-line-end="48">Note: The -L option is only used for establishing a local port forward for a FUTURE connection. You can only interact with it by logging<br>
+into it via another ssh session. In this case we logged into T2(192.168.159.132) via ssh on port 4444 <a href="/cdn-cgi/l/email-protection#f98b96968db9c8cbced7c9d7c9d7c8"><span class="__cf_email__" data-cfemail="bcced3d3c8fc8d8e8b928c928c928d">[email&#160;protected]</span></a> (local host).</p>
+<pre><code>       ***SEE Local_Forwarding_illistration.jgp FOR VISUAL AID ***
+</code></pre>
+<p class="has-line-data" data-line-start="51" data-line-end="54">Breakdown:<br>
+For the 1st part of ssh line syntax, by default it establishes a local port assignment you can add a local loopback address at this point<br>
+&quot; ssh <a href="/cdn-cgi/l/email-protection#7a0815150e3a4b484d544a544a544b"><span class="__cf_email__" data-cfemail="ee9c81819aaedfdcd9c0dec0dec0df">[email&#160;protected]</span></a> &quot;</p>
+<p class="has-line-data" data-line-start="55" data-line-end="57">The 2nd part of the syntax determines what port you are assigning locally [If not specified, by default it will assign 127.0.0.1 (localhost) to the -L 4444 port]<br>
+&quot; -L 127.0.0.1:4444: &quot;</p>
+<p class="has-line-data" data-line-start="64" data-line-end="67">The 3rd Part of the syntax covers target ip and destination port. This portion of the syntax tells the machine where to forward the traffic from the locally bound port.<br>
+In this case we want any traffic that is recieved on the locally bound port of 4444, to be forwarded to the remote IP of 192.168.159.132 on port 22.<br>
+&quot; 192.168.159.132:22 &quot;</p>
+<pre><code>       -- -L Use cases --
+</code></pre>
+<p class="has-line-data" data-line-start="69" data-line-end="72">127.0.0.1:80<br>
+<a href="http://google.com:443">google.com:443</a><br>
+All traffic being sent to bind_port 80 (HTTP) on the bind_address is now being sent to the remote hostport 443 (HTTPS) on a secure connection. HTTP data on port 80 is sent using cleartext. Since you are now fowarding the bind_address port 80 traffic to the remote_hostport on 443 (HTTPS), the web data is now secured over an encrypted connection.</p>
+<p class="has-line-data" data-line-start="76" data-line-end="79">127.0.0.1:21<br>
+FileserverIP:22<br>
+All traffic being sent to the bind_port 21 (FTP) on the bind_address is now being sent to the remote hostport 22 (SFTP) on a secure connection. FTP does data transfer using cleartext but because you established a secure tunnel, that data is now being sent over an encrypted connection.</p>
+<p class="has-line-data" data-line-start="86" data-line-end="89">127.0.0.1:23<br>
+LinuxServerIP:22<br>
+All traffic being sent to the bind_port 23 (Telnet) on the bind_address is now being sent on the remote hostport 22 (SSH) on a secure connection.System administrators may need to access devices remotely, but Telnet sends data over the wire using plaintext. Now, with this secure connection, any duties they perform over the wire would now be encrypted over the secure tunnel.</p>
+<p class="has-line-data" data-line-start="96" data-line-end="101">127.0.0.1:3389<br>
+homeIP:22<br>
+If your work firewall is set to block 3389 RDP connections, you can set a secure tunnel to foward any connection on the local port 3389<br>
+to run through a secure tunnel to your home computer. Now, not only are you allowed to use the RDP protocol, all the data sent over the<br>
+wire will now be encypted as well.</p>
+<h2 class="code-line" data-line-start=101 data-line-end=102><a id="Remote_Port_Forwarding_101"></a>–Remote Port Forwarding–</h2>
+<p class="has-line-data" data-line-start="102" data-line-end="104">-R Explained:<br>
+The -R flag is similar to a local port forward but the directions are reversed. When using the flag -R in regards to T1 &lt;- T2 this means that the user from the current client machine machine is going to establish an ssh connection to a Server IP and create the beinnging of the SSH pipe (the entrance) at the Server machine T2. This establishes an Server Listener on the Server machine. Any application server that is being forwarded will then return and make a connection to the ssh client and application client at your own local machine.</p>
+<p class="has-line-data" data-line-start="105" data-line-end="109">T1 &lt;-- T2<br>
+note: The Arrow above as well as in the illustration below indicates the direction in which the port is being forwarded. If you are working from your current local host client (T1) then the port will be forwarded from the Server(T2) back to T1<br>
+T1 192.168.159.134 &lt;–T2 192.168.159.132<br>
+<img src="https://github.com/isaaccarjr/phoenix/blob/master/Remote_Forwarding_illistration.jpg?raw=true" alt=""></p>
+<h2 class="code-line" data-line-start=109 data-line-end=110><a id="syntax_109"></a>syntax</h2>
+<p class="has-line-data" data-line-start="110" data-line-end="111">ssh <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="ccb9bfa9be8c">[email&#160;protected]</a>&lt;Remote_Host_IP&gt; -R &lt;Remote_Host_IP&gt;&lt;Remote_Host_Port#&gt;:&lt;Bind_Address_IP&gt;:&lt;Bind_Address_Port&gt;</p>
+<p class="has-line-data" data-line-start="112" data-line-end="115">From T1<br>
+<img src="https://github.com/isaaccarjr/phoenix/blob/master/4.PNG?raw=true" alt=""><br>
+note: “0.0.0.0” indicates that the listining socket on the Remote_Host_Port should listen on all interfaces</p>
+<p class="has-line-data" data-line-start="116" data-line-end="119">From T2 Remote_Host, you can interact with the connection from the terminal:<br>
+<img src="https://github.com/isaaccarjr/phoenix/blob/master/3.PNG?raw=true" alt=""><br>
+command is &quot;ssh <a href="/cdn-cgi/l/email-protection#b9cbd6d6cdf9888b8e978997899788"><span class="__cf_email__" data-cfemail="aad8c5c5deea9b989d849a849a849b">[email&#160;protected]</span></a> -p 9999.</p>
+<p class="has-line-data" data-line-start="120" data-line-end="121">Note: The -R option is used for establishing a port on a remote machine that will connect back to your host machine. From the Remote_Host you can also interact with the connection. In this case we ssh’d to the Remote_Host, opened port 9999 that connected back to our Bind_Address_IP. Then from the Remote_Host (T2) we interacted with the connection via <a href="/cdn-cgi/l/email-protection#80f2efeff4c0b1b2b7aeb0aeb0aeb1"><span class="__cf_email__" data-cfemail="3e4c51514a7e0f0c09100e100e100f">[email&#160;protected]</span></a> on port 9999.</p>
+<p class="has-line-data" data-line-start="122" data-line-end="125">Breakdown:<br>
+For the 1st part of the ssh line syntax, we ssh to the remote machine<br>
+&quot; ssh <a href="/cdn-cgi/l/email-protection#592b36362d1968606b77686f6177686c6077686a6b"><span class="__cf_email__" data-cfemail="32405d5d4672030b001c03040a1c03070b1c030100">[email&#160;protected]</span></a> &quot;</p>
+<p class="has-line-data" data-line-start="126" data-line-end="128">For the 2nd part of the ssh line syntax, we establish a designated remote port 9999 [If not specified, by default it will assign 0.0.0.0 (all IPv4 address assigned to the remote machine) to the -R 9999 port]<br>
+&quot; -R 0.0.0.0:9999 &quot;</p>
+<p class="has-line-data" data-line-start="129" data-line-end="131">For the 3rd part of the ssh line syntax we designate the callback connection to our Bind_Address_IP machine<br>
+&quot; localhost:22 &quot;</p>
+<h2 class="code-line" data-line-start=133 data-line-end=134><a id="Example_133"></a>–Example–</h2>
+<p class="has-line-data" data-line-start="134" data-line-end="136">RDP over ssh connection throuh designated port<br>
+ssh <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="f085839582b0879f829bb9a0">[email&#160;protected]</a> -L 127.0.0.1:4444:homeIP:3389</p>
+<p class="has-line-data" data-line-start="137" data-line-end="139">So in this example <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="a1d4d2c4d3e1d6ced3cae8f1">[email&#160;protected]</a> would be the work computer (the bind_address_IP). The firewall allows inbound and outbound ssh connections. The firewall does not allow 3389 (RDP) connections to or from work. Although rom our work computer if you needed to access your home machine, you can set up a local Listener that will forward any returning 3389 port traffic back to the work computer over port 4444. Using the -L options you would assign a port (4444) to forward traffic to your “homeIP” on (3389) RDP.<br>
+Likewise for the -R but the direction of the port forward is reversed. Still the firewall at work will not allow RDP traffic over port 3389 either inboud or bound. Using the command “ssh -R 0.0.0.0:8181:localhost:3389 <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="4e3b3d2b3c0e071e">[email&#160;protected]</a>” from your home computer, you can create an ssh connection to your work computer. Then allowing an assigned port 8181 to call back to your home computer locally on 3389. This will allow 3389 RDP traffic to be forwarded back over to 8181 through the firewall over ssh</p>
+<p class="has-line-data" data-line-start="140" data-line-end="141">ssh <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="790b16160d390e1c1b0a1c0b0f1c0b3029">[email&#160;protected]</a> -R 0.0.0.0:8080:homeIP:22</p>
+<p class="has-line-data" data-line-start="142" data-line-end="144">So in this example T2 would be the webserver. The firewall allows inbound and outbound ssh connections. The firewall does not allow web traffic over 8080.<br>
+Using the -R options we would assign a port (8080) on T2 to forward traffic back to our “homeIP” on port 80 through a secure connection.</p>
+<h2 class="code-line" data-line-start=145 data-line-end=146><a id="References_145"></a>References:</h2>
+<ul>
+<li class="has-line-data" data-line-start="146" data-line-end="147"><a href="https://linux.die.net/man/1/ssh">https://linux.die.net/man/1/ssh</a></li>
+<li class="has-line-data" data-line-start="147" data-line-end="148">man ssh - man page command for ssh on linux</li>
+<li class="has-line-data" data-line-start="148" data-line-end="149"><a href="https://www.youtube.com/watch?v=AtuAdk4MwWw&amp;t=302s">https://www.youtube.com/watch?v=AtuAdk4MwWw&amp;t=302s</a> - A video explaination of ssh tunnels</li>
+<li class="has-line-data" data-line-start="149" data-line-end="150"><a href="https://www.youtube.com/watch?v=g_Row8zEJZc&amp;t=3s">https://www.youtube.com/watch?v=g_Row8zEJZc&amp;t=3s</a> - More a visual explaination of ssh tunnels</li>
+<li class="has-line-data" data-line-start="150" data-line-end="153">The Secure Shell by Daniel J. Barrett, Richard E. Silverman, and Robert G. Byrnes
+<ul>
+<li class="has-line-data" data-line-start="151" data-line-end="152">Page 350-355 section 9.2.1 Local</li>
+<li class="has-line-data" data-line-start="152" data-line-end="153">Page 356 section 9.2.1.2 Remote Forwarding</li>
+</ul>
+</li>
+</ul>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script></body></html>
