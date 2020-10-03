@@ -35,9 +35,9 @@ Command is  "ssh root@127.0.0.1 -L 127.0.0.1:4444:192.168.159.132:22"
 
 
 -L Explained:  
-The -L flags specifies a local forwarding. This states that the TCP client and SSH client are both on the same Client machine.
+The -L flags specifies a local port forwarding. This states that the TCP client and SSH client are both on the same "Client" machine.
 When using the flag -L in regards to T1 -> T2 this means that the user is creating the start of the SSH pipe (The entrance) 
-at T1 (bind_address IP). The pipe will start at T1 and create an ssh connection with a Server machine and a defined port. The SSH pipe will end at T2 and port forward the traffic starting at T1 and sending it to T2 (Server machine IP) to a hostport you defined. 
+at T1 (bind_address IP). The pipe will start at T1 and create an ssh connection to a Server machine and a defined hostport. The SSH pipe will end at T2 and the bind_port will forward the traffic starting at T1 and sending it to T2 (Server machine IP) and hostport you have defined. 
            
 Note: The -L option is only used for establishing a local port forward for a FUTURE connection. You can only interact with it by logging 
 into it via another ssh session. In this case we logged into T2(192.168.159.132) via ssh on port 4444 root@127.0.0.1 (local host).             
