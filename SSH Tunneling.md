@@ -16,6 +16,7 @@ forwarded to a remote machine(T2)
 
 ssh root@<LocalIP> -L <LocalIP><Port#>:<TargetIP>:<Target Port> 
     
+    ![GitHub Logo](C:\Users\lessl\Downloads\Remote_Forwarding_illistration.jpg)
     ***SEE Local_Forwarding_illistration.jgp FOR VISUAL AID ***
 
 T1 192.168.159.134 --> T2 192.168.159.132
