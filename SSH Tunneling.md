@@ -11,7 +11,7 @@
 
 ## Local Port Fowarding
 #####                                       T1 --> T2
-Note: The arrow above (and below in the illustration) indicates the direction in which the port is being forwarded. If you are working from your current bind\_address(T1) then the bind_port will forward the connection to the Server\_IP and hostport(T2).
+Note: The arrow above (and below in the illustration below) indicates the direction in which the bind_port is being forwarded to. If you are working from your current bind\_address(T1) then the bind_port will forward the connection to the Server\_IP and hostport(T2).
 
 
  
