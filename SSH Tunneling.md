@@ -17,8 +17,8 @@ Note: The arrow above (and below in the illustration) indicates the direction in
 
  
 ```sh
-                    $ ssh root@[localhost] -L [bind_address:]bind_port:host:hostport
-                            T1 192.168.159.134 --> T2 192.168.159.132
+                      $ ssh root@[localhost] -L [bind_address:]bind_port:host:hostport
+                              T1 192.168.159.134 --> T2 192.168.159.132
 ```
 From our T1 bind_address:
 Command is  "ssh root@127.0.0.1 -L 127.0.0.1:4444:192.168.159.132:22"
@@ -86,7 +86,7 @@ T1 <-- T2
 Note: The Arrow above as well as in the illustration below indicates the direction in which the port is being forwarded. If you are working from your current local host client (T1) then the port will be forwarded from the Server(T2) back to T1
 
 ```sh
-                             T1 192.168.159.134 --< T2 192.168.159.132
+                               T1 192.168.159.134 --< T2 192.168.159.132
 ```
 
 ![](https://github.com/isaaccarjr/phoenix/blob/master/Remote_Forwarding_illistration.jpg?raw=true)
