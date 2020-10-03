@@ -86,7 +86,7 @@ T1 <-- T2
 Note: The Arrow above as well as in the illustration below indicates the direction in which the port is being forwarded. If you are working from your current local host client (T1) then the port will be forwarded from the Server(T2) back to T1
 
 ```sh
-                        T1 192.168.159.134 --< T2 192.168.159.132
+                             T1 192.168.159.134 --< T2 192.168.159.132
 ```
 
 ![](https://github.com/isaaccarjr/phoenix/blob/master/Remote_Forwarding_illistration.jpg?raw=true)
@@ -95,12 +95,16 @@ Note: The Arrow above as well as in the illustration below indicates the directi
 ssh user@<Remote_Host_IP> -R <Remote_Host_IP><Remote_Host_Port#>:<Bind_Address_IP>:<Bind_Address_Port>
 
 From T1
+
 ![](https://github.com/isaaccarjr/phoenix/blob/master/4.PNG?raw=true)
-note: "0.0.0.0" indicates that the listining socket on the Remote_Host_Port should listen on all interfaces
+
+Note: "0.0.0.0" indicates that the listining socket on the Remote_Host_Port should listen on all interfaces
 
 From T2 Remote_Host, you can interact with the connection from the terminal:
+
 ![](https://github.com/isaaccarjr/phoenix/blob/master/3.PNG?raw=true)
-command is "ssh root@127.0.0.1 -p 9999.
+
+Command is "ssh root@127.0.0.1 -p 9999
 
 Note: The -R option is used for establishing a port on a remote machine that will connect back to your host machine. From the Remote_Host you can also interact with the connection. In this case we ssh'd to the Remote_Host, opened port 9999 that connected back to our Bind_Address_IP. Then from the Remote_Host (T2) we interacted with the connection via root@127.0.0.1 on port 9999.
 
