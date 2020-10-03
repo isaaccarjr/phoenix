@@ -32,6 +32,7 @@ Command is  "ssh root@127.0.0.1 -L 127.0.0.1:4444:192.168.159.132:22"
 \>ssh root@127.0.0.1 -p 4444
 ![](https://github.com/isaaccarjr/phoenix/blob/master/A%20to%20B%202.PNG?raw=true)
    \>>Access to T2 
+   ![](https://github.com/isaaccarjr/phoenix/blob/master/Local_Forward_illistration.jpg?raw=true)
 
  
 
@@ -45,9 +46,7 @@ When using the flag -L in regards to T1 -> T2 this means that the user is creati
 at T1 (bind_address IP). The pipe will start at T1 and create an ssh connection with a host_address machine and a defined port. The SSH pipe will end at T2 and port forward the traffic starting at T1 and sending it to T2 (remote machine IP) to a port you defined. 
            
 Note: The -L option is only used for establishing a local port forward for a FUTURE connection. You can only interact with it by logging 
-into it via another ssh session. In this case we logged into T2(192.168.159.132) via ssh on port 4444 root@127.0.0.1 (local host).             
-           
-           ***SEE Local_Forwarding_illistration.jgp FOR VISUAL AID ***
+into it via another ssh session. In this case we logged into T2(192.168.159.132) via ssh on port 4444 root@127.0.0.1 (local host).            
            
 Breakdown:
 For the 1st part of ssh line syntax, by default it establishes a local port assignment you can add a local loopback address at this point 
@@ -99,6 +98,7 @@ homeIP:22
 If your work firewall is set to block 3389 RDP connections, you can set a secure tunnel to foward any connection on the local port 3389 
 to run through a secure tunnel to your home computer. Now, not only are you allowed to use the RDP protocol, all the data sent over the 
 wire will now be encypted as well.
+
 ##           --Remote Port Forwarding--
 -R Explained:
 The -R flag is similar to a local port forward but the directions are reversed. When using the flag -R in regards to T1 <- T2 this means that the user from the current client machine machine is going to establish an ssh connection to a Server IP and create the beinnging of the SSH pipe (the entrance) at the Server machine T2. This establishes an Server Listener on the Server machine. Any application server that is being forwarded will then return and make a connection to the ssh client and application client at your own local machine.
