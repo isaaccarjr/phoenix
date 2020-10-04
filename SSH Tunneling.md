@@ -20,18 +20,18 @@ Note: The arrow above (and below in the illustration below) indicates the direct
                               T1 192.168.159.134 --> T2 192.168.159.132
 ```
 From our T1 bind_address:
-Command is  "ssh root@127.0.0.1 -L 127.0.0.1:4444:192.168.159.132:22"
 
 ![](https://github.com/isaaccarjr/phoenix/blob/master/A%20to%20B.PNG?raw=true) 
 
-\>ssh root@127.0.0.1 -p 4444
+>Command is  "ssh root@127.0.0.1 -L 127.0.0.1:4444:192.168.159.132:22"
 
 ![](https://github.com/isaaccarjr/phoenix/blob/master/A%20to%20B%202.PNG?raw=true)
 
-\>>Access to T2 
-  
+>ssh root@127.0.0.1 -p 4444
+
 ![](https://github.com/isaaccarjr/phoenix/blob/master/Local_Forward_illistration.jpg?raw=true)
 
+>>Access to T2 
 
 
 -L Explained:  
