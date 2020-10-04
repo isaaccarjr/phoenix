@@ -94,7 +94,9 @@ From our T2 bind_address:
 
 ![](https://github.com/isaaccarjr/phoenix/blob/master/A%20to%20B%202.PNG?raw=true)
 >ssh root@127.0.0.1 -p 4444
->>Access to T2
+>>Access to T1
+
+The similar concept applies when local port forwarding is done from T2 to T1. In this scenario T2 is the SSH Client and T1 is the SSH Server. The bind_address is set to 4444, so any traffic that calls for 4444 on T2 will be sent to the remote host and hostport. Reaching T1 on IP 192.168.159.134 on port 22.
 
 ##           Remote Port Forwarding
 -R Explained:
