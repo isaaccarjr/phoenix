@@ -178,3 +178,15 @@ Using the -R options we would assign a port (8080) on T2 to forward traffic back
 - The Secure Shell by Daniel J. Barrett, Richard E. Silverman, and Robert G. Byrnes   
     - Page 350-355 section 9.2.1 Local 
     - Page 356 section 9.2.1.2 Remote Forwarding
+
+## BONUS BONUS BONUS
+
+>A 192.168.159.134 
+->B 192.168.159.132
+-->C 192.168.159.137
+
+ssh root@127.0.0.1 -L 8787:192.168.159.132:22
+
+ssh root@127.0.0.1 -p 8787 -L 7878:192.168.159.137:22
+
+ssh jim@127.0.0.1 -p 7878 
