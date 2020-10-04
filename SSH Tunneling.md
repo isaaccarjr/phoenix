@@ -117,6 +117,8 @@ From T1
 
 ![](https://github.com/isaaccarjr/phoenix/blob/master/4.PNG?raw=true)
 
+>Command is "ssh root@192.168.159.132 -R 0.0.0.0:9999:127.0.0.1:22"
+
 Note: "0.0.0.0" indicates that the listining socket on the Remote_Host_Port should listen on all interfaces
 
 From T2 Remote_Host, you can interact with the connection from the terminal:
