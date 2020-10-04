@@ -123,7 +123,7 @@ From T2 Remote_Host, you can interact with the connection from the terminal:
 
 ![](https://github.com/isaaccarjr/phoenix/blob/master/3.PNG?raw=true)
 
-Command is "ssh root@127.0.0.1 -p 9999
+>Command is "ssh root@127.0.0.1 -p 9999
 
 Note: The -R option is used for establishing a port on a remote machine that will connect back to your host machine. From the Remote_Host you can also interact with the connection. In this case we ssh'd to the Remote_Host, opened port 9999 that connected back to our Bind_Address_IP. Then from the Remote_Host (T2) we interacted with the connection via root@127.0.0.1 on port 9999.
 
