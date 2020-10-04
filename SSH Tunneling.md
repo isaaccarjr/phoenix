@@ -111,7 +111,9 @@ Note: The Arrow above as well as in the illustration below indicates the directi
 ![](https://github.com/isaaccarjr/phoenix/blob/master/Remote_Forwarding_illistration.jpg?raw=true)
 
 ## Syntax
-ssh user@<Remote_Host_IP> -R <Remote_Host_IP><Remote_Host_Port#>:<Bind_Address_IP>:<Bind_Address_Port>
+```sh
+                   $ ssh user@remote_host_IP> -R [remote_host_IP]:remote_hostport:bind_address:bind_port
+``` 
 
 From T1
 
