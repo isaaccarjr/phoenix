@@ -184,7 +184,8 @@ Using the -R options we would assign a port (8080) on T2 to forward traffic back
 ## BONUS BONUS BONUS
 
 \>A 192.168.159.134 
-![](https://github.com/isaaccarjr/phoenix/blob/master/15.PNG?raw=true}
+
+![](https://github.com/isaaccarjr/phoenix/blob/master/15.PNG?raw=true)
 
 This is the the first hop locally from your client host port 8787 to B. The bind_port will direct the traffic 
 to the server host and server port "192.168.159.132:8787"
