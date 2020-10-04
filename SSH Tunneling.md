@@ -28,10 +28,9 @@ From our T1 bind_address:
 ![](https://github.com/isaaccarjr/phoenix/blob/master/A%20to%20B%202.PNG?raw=true)
 
 >ssh root@127.0.0.1 -p 4444
+>>Access to T2 
 
 ![](https://github.com/isaaccarjr/phoenix/blob/master/Local_Forward_illistration.jpg?raw=true)
-
->>Access to T2 
 
 
 -L Explained:  
