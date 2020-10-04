@@ -184,10 +184,22 @@ Using the -R options we would assign a port (8080) on T2 to forward traffic back
 ## BONUS BONUS BONUS
 
 \>A 192.168.159.134 
+![](https://github.com/isaaccarjr/phoenix/blob/master/15.PNG?raw=true}
+
+This is the the first hop locally from your client host port 8787 to B. The bind_port will direct the traffic 
+to the server host and server port "192.168.159.132:8787"
 
 \->B 192.168.159.132
 
+![](https://github.com/isaaccarjr/phoenix/blob/master/16.PNG?raw=true)
+
+Now we can open new terminal and interact with the conntection from A to B by logging locally to B. This will then will port forward from B to C at 192.168.159.132 on port 8787 then creating a client listener from B to C at  192.168.159.137 on port 7878
+
 \-->C 192.168.159.137
+
+![](https://github.com/isaaccarjr/phoenix/blob/master/18.PNG?raw=true)
+
+By opening a 3rd terminal and logging in locally, You can then interact with the final target C at 192.168.159.137 all by the client localhost
 
 >ssh root@127.0.0.1 -L 8787:192.168.159.132:22
 
