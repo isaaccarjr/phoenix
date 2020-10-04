@@ -182,7 +182,9 @@ Using the -R options we would assign a port (8080) on T2 to forward traffic back
 ## BONUS BONUS BONUS
 
 \>A 192.168.159.134 
+
 \->B 192.168.159.132
+
 \-->C 192.168.159.137
 
 >ssh root@127.0.0.1 -L 8787:192.168.159.132:22
