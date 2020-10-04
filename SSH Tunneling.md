@@ -47,7 +47,7 @@ Breakdown:
 For the 1st part of ssh line syntax, by default it establishes a local port assignment you can add a local loopback address at this point 
            " ssh root@127.0.0.1 "
            
-The 2nd part of the syntax determines what port you are assigning locally [If not specified, by default it will assign 127.0.0.1 (localhost) to the -L 4444 port]
+The 2nd part of the syntax determines what port you are assigning locally [If not specified, by default it will assign 127.0.0.1 (bind_address) to the -L 4444 bind_port]
            " -L 127.0.0.1:4444: "
 
  
