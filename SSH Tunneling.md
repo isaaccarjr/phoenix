@@ -20,15 +20,15 @@ Note: The arrow above (and below in the illustration below) indicates the direct
                               T1 192.168.159.134 --> T2 192.168.159.132
 ```
 From our T1 bind_address:
-Command is  "ssh root@127.0.0.1 -L 127.0.0.1:4444:192.168.159.132:22"
 
 ![](https://github.com/isaaccarjr/phoenix/blob/master/A%20to%20B.PNG?raw=true) 
 
-\>ssh root@127.0.0.1 -p 4444
+> Command is  "ssh root@127.0.0.1 -L 127.0.0.1:4444:192.168.159.132:22"
+
 
 ![](https://github.com/isaaccarjr/phoenix/blob/master/A%20to%20B%202.PNG?raw=true)
-
-\>>Access to T2 
+>ssh root@127.0.0.1 -p 4444
+>>Access to T2 
   
 ![](https://github.com/isaaccarjr/phoenix/blob/master/Local_Forward_illistration.jpg?raw=true)
 
@@ -139,7 +139,6 @@ For the 3rd part of the ssh line syntax we designate the callback connection to 
 Now with understanding -R T1 --< T2 there is also the opposite direction as well. With the same concept as setting up a Server listener from a client, we can go also go the opposite direction. T2 >-- T1. With The next Example we will port forward traffic from the Server Listener at 192.168.159.134 back to the client at 192.168.159.132
 
 ![](https://github.com/isaaccarjr/phoenix/blob/master/11.PNG?raw=true)
-
 command is ssh root@192.168.159.134 -R 0.0.0.0:9999:127.0.0.1:22
 
 Now on the Server Listener we can verify this connection with netstat to show we created a listening Server Socket 
