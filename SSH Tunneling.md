@@ -140,9 +140,10 @@ Now with understanding -R T1 --< T2 there is also the opposite direction as well
 
 ![](https://github.com/isaaccarjr/phoenix/blob/master/11.PNG?raw=true)
 
-command is "ssh root@192.168.159.134 -R 0.0.0.0:9999:127.0.0.1:22"
+>Command is "ssh root@192.168.159.134 -R 0.0.0.0:9999:127.0.0.1:22"
 
 Now on the Server Listener we can verify this connection with netstat to show we created a listening Server Socket 
+
 ![](https://github.com/isaaccarjr/phoenix/blob/master/13.PNG?raw=true)
 
 To interact with this connection we can do the same as before by logging into the connection locally from 192.168.159.134
